@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dllos1dw65cl7"]
+
+[ext_resource type="Script" uid="uid://bah8jc41ddcu4" path="res://Ball.gd" id="1_x8fbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwb40"]
+radius = 50.0
+
+[node name="Ball" type="RigidBody2D" unique_id=205845738]
+script = ExtResource("1_x8fbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2017897169]
+shape = SubResource("CircleShape2D_mwb40")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1958845414]
+color = Color(0.22352941, 0.64705884, 0.5921569, 1)
+polygon = PackedVector2Array(0, -50, -12, -48, -28, -41, -41, -28, -49, -8, -47, 18, -34, 38, -9, 50, 11, 48, 34, 38, 48, 15, 50, -4, 42, -28, 27, -43, 14, -48)
