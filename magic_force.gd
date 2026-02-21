@@ -19,7 +19,7 @@ func apply_radial_force(origin: Vector2) -> void:
 	var bodies := get_tree().get_nodes_in_group("physics_bodies")
 	
 	for node in bodies:
-		print("have some bodies")
+		#print("have some bodies")
 		if node is RigidBody2D:
 			var body: RigidBody2D = node
 			var direction: Vector2 = body.global_position - origin
