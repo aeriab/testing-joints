@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dllos1dw65cl7" path="res://ball.tscn" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://f6j5hbntab62" path="res://damped_spring_joint_2d.gd" id="3_7jktm"]
 [ext_resource type="Script" uid="uid://geihme4ku2yh" path="res://move_static_body_2d_2.gd" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://bah8jc41ddcu4" path="res://Ball.gd" id="4_eow3j"]
 [ext_resource type="Script" uid="uid://d3tattyyqyiuy" path="res://magic_force.gd" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dxj85me75a643" path="res://rope_joint.tscn" id="4_ryrav"]
 
@@ -44,6 +45,8 @@ shape = SubResource("WorldBoundaryShape2D_80nbo")
 polygon = PackedVector2Array(-150, 0, 0, 0, 3189, 0, 3189, 1851, -4639, 1766, -4647, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=475873295]
+position = Vector2(13, -485)
+zoom = Vector2(0.3, 0.3)
 
 [node name="SpawnRigidBodies" type="Node2D" parent="." unique_id=1480068635]
 process_mode = 4
@@ -51,9 +54,13 @@ script = ExtResource("1_80nbo")
 ball_scene = ExtResource("2_e2o6t")
 
 [node name="GroupWithJoint" type="Node2D" parent="." unique_id=358781970]
-position = Vector2(29, -180)
+process_mode = 4
+position = Vector2(3022, -651)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="GroupWithJoint" unique_id=744953896 groups=["physics_bodies"]]
+script = ExtResource("4_eow3j")
+max_speed = 1.0
+max_angular_speed = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint/RigidBody2D" unique_id=705562412]
 shape = SubResource("CircleShape2D_mwb40")
@@ -64,6 +71,9 @@ polygon = PackedVector2Array(0, -50, -12, -48, -28, -41, -41, -28, -49, -8, -47,
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="GroupWithJoint" unique_id=248071308 groups=["physics_bodies"]]
 position = Vector2(34, 115)
+script = ExtResource("4_eow3j")
+max_speed = 1.0
+max_angular_speed = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint/RigidBody2D2" unique_id=451153072]
 shape = SubResource("CircleShape2D_mwb40")
@@ -89,6 +99,10 @@ stiff_float = 200.0
 position = Vector2(-241, -183)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="GroupWithJoint2" unique_id=1688401346 groups=["physics_bodies"]]
+custom_integrator = true
+script = ExtResource("4_eow3j")
+max_speed = 100.0
+max_angular_speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint2/RigidBody2D" unique_id=710636012]
 shape = SubResource("CircleShape2D_mwb40")
@@ -99,6 +113,10 @@ polygon = PackedVector2Array(0, -50, -12, -48, -28, -41, -41, -28, -49, -8, -47,
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="GroupWithJoint2" unique_id=1559712613 groups=["physics_bodies"]]
 position = Vector2(120, 0)
+custom_integrator = true
+script = ExtResource("4_eow3j")
+max_speed = 1.0
+max_angular_speed = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint2/RigidBody2D2" unique_id=1031523614]
 shape = SubResource("CircleShape2D_mwb40")
@@ -138,4 +156,4 @@ polygon = PackedVector2Array(-151, -27, -126, 137, 243, 80, 158, -55)
 
 [node name="MagicForce" type="Node2D" parent="." unique_id=1798878521]
 script = ExtResource("4_fc0e3")
-force_strength = 60000.0
+force_strength = 999999.0
