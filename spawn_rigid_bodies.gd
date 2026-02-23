@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var ball_scene: PackedScene
+@export var stone_scene: PackedScene
 
-var ball: Ball
+var stone: Stone
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("spawn"):
-		ball = ball_scene.instantiate() as Ball
-		ball.global_position = get_global_mouse_position()
-		get_parent().add_child(ball)
+		stone = stone_scene.instantiate() as Stone
+		stone.global_position = get_global_mouse_position()
+		get_parent().add_child(stone)

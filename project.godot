@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TestingJoints"
-run/main_scene="uid://b3bxrtas7dkbl"
+run/main_scene="uid://cc4u3thvhbqw"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

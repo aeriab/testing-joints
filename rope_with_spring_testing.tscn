@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b3bxrtas7dkbl"]
 
 [ext_resource type="PackedScene" uid="uid://dxj85me75a643" path="res://rope_joint.tscn" id="1_2emv1"]
-[ext_resource type="Script" uid="uid://bah8jc41ddcu4" path="res://Ball.gd" id="1_s0apg"]
+[ext_resource type="Script" uid="uid://bah8jc41ddcu4" path="res://Stone.gd" id="1_s0apg"]
 [ext_resource type="Script" uid="uid://d028kntj6s5op" path="res://collision_shape_2d.gd" id="2_1fu6y"]
 [ext_resource type="Script" uid="uid://f6j5hbntab62" path="res://damped_spring_joint_2d.gd" id="2_s0apg"]
 [ext_resource type="Script" uid="uid://d3tattyyqyiuy" path="res://magic_force.gd" id="3_1fu6y"]
