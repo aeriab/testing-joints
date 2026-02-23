@@ -34,19 +34,19 @@ func _on_body_entered(body: Node) -> void:
 
 			# Rope joint
 			var rope_joint = rope_joint_scene.instantiate() as RopeJoint
-			#get_tree().current_scene.add_child(rope_joint)
+			get_tree().current_scene.add_child(rope_joint)
 			rope_joint.body1 = self
 			rope_joint.body2 = body
-			rope_joint.max_distance = joint_distance + 999
+			rope_joint.max_distance = joint_distance
 			
 			
 
 			# Spring joint
-			var spring_joint = spring_joint_scene.instantiate() as DampedSpringJoint2D
-			get_tree().current_scene.add_child(spring_joint)
-			spring_joint.global_position = global_position
-			spring_joint.node_a = spring_joint.get_path_to(self)
-			spring_joint.node_b = spring_joint.get_path_to(body)
-			spring_joint.length = joint_distance
-			spring_joint.rest_length = joint_distance
-			spring_joint.setup_bodies()
+			#var spring_joint = spring_joint_scene.instantiate() as DampedSpringJoint2D
+			#get_tree().current_scene.add_child(spring_joint)
+			#spring_joint.global_position = global_position
+			#spring_joint.node_a = spring_joint.get_path_to(self)
+			#spring_joint.node_b = spring_joint.get_path_to(body)
+			#spring_joint.length = joint_distance
+			#spring_joint.rest_length = joint_distance
+			#spring_joint.setup_bodies()

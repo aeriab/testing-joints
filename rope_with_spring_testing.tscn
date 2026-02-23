@@ -58,6 +58,8 @@ body2 = NodePath("../RigidBody2D2")
 max_distance = 120.0
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="GroupWithJoint2" unique_id=79540056]
+process_mode = 4
+visible = false
 rotation = -1.5707964
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../RigidBody2D2")
@@ -71,7 +73,7 @@ stiff_float = 500.0
 
 [node name="MagicForce" type="Node2D" parent="." unique_id=741465944]
 script = ExtResource("3_1fu6y")
-force_strength = 99999.0
+force_strength = 9999.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=386689480]
 
