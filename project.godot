@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="TestingJoints"
-run/main_scene="uid://cc4u3thvhbqw"
+run/main_scene="uid://b3bxrtas7dkbl"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://duw10m1mxbnpp"
 
 [dotnet]
 
@@ -34,6 +38,7 @@ spawn={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+2d/solver/default_contact_bias=1.0
 
 [rendering]
 

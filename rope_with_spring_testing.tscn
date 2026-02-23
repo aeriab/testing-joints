@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b3bxrtas7dkbl"]
+
+[ext_resource type="PackedScene" uid="uid://dxj85me75a643" path="res://rope_joint.tscn" id="1_2emv1"]
+[ext_resource type="Script" uid="uid://bah8jc41ddcu4" path="res://Ball.gd" id="1_s0apg"]
+[ext_resource type="Script" uid="uid://d028kntj6s5op" path="res://collision_shape_2d.gd" id="2_1fu6y"]
+[ext_resource type="Script" uid="uid://f6j5hbntab62" path="res://damped_spring_joint_2d.gd" id="2_s0apg"]
+[ext_resource type="Script" uid="uid://d3tattyyqyiuy" path="res://magic_force.gd" id="3_1fu6y"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ub10y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wj8s"]
+custom_solver_bias = 1.0
+radius = 50.0
+
+[node name="RopeWithSpringTesting" type="Node2D" unique_id=196862000]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1730901707]
+position = Vector2(1, 102)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1031783922]
+shape = SubResource("WorldBoundaryShape2D_ub10y")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=1717756784]
+polygon = PackedVector2Array(-150, 0, 0, 0, 3189, 0, 3189, 1851, -4639, 1766, -4647, 1)
+
+[node name="GroupWithJoint2" type="Node2D" parent="." unique_id=513464262]
+position = Vector2(0, 52)
+rotation = -1.5707964
+
+[node name="RigidBody2D" type="RigidBody2D" parent="GroupWithJoint2" unique_id=2086400407 groups=["physics_bodies"]]
+continuous_cd = 2
+script = ExtResource("1_s0apg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint2/RigidBody2D" unique_id=1711699781]
+shape = SubResource("CircleShape2D_8wj8s")
+script = ExtResource("2_1fu6y")
+
+[node name="Polygon2D" type="Polygon2D" parent="GroupWithJoint2/RigidBody2D" unique_id=87518979]
+color = Color(0.65953535, 0, 0.15413767, 1)
+polygon = PackedVector2Array(0, -50, -12, -48, -28, -41, -41, -28, -49, -8, -47, 18, -34, 38, -9, 50, 11, 48, 34, 38, 48, 15, 50, -4, 42, -28, 27, -43, 14, -48)
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="GroupWithJoint2" unique_id=1336906758 groups=["physics_bodies"]]
+position = Vector2(120, 0)
+continuous_cd = 2
+script = ExtResource("1_s0apg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint2/RigidBody2D2" unique_id=1063456013]
+shape = SubResource("CircleShape2D_8wj8s")
+script = ExtResource("2_1fu6y")
+
+[node name="Polygon2D" type="Polygon2D" parent="GroupWithJoint2/RigidBody2D2" unique_id=244287365]
+color = Color(5.174056e-06, 0.40183163, 0.032646608, 1)
+polygon = PackedVector2Array(0, -50, -12, -48, -28, -41, -41, -28, -49, -8, -47, 18, -34, 38, -9, 50, 11, 48, 34, 38, 48, 15, 50, -4, 42, -28, 27, -43, 14, -48)
+
+[node name="RopeJoint" parent="GroupWithJoint2" unique_id=1324285322 node_paths=PackedStringArray("body1", "body2") instance=ExtResource("1_2emv1")]
+body1 = NodePath("../RigidBody2D")
+body2 = NodePath("../RigidBody2D2")
+max_distance = 120.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="GroupWithJoint2" unique_id=79540056]
+rotation = -1.5707964
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../RigidBody2D2")
+bias = 0.9
+disable_collision = false
+length = 120.0
+stiffness = 64.0
+damping = 0.5
+script = ExtResource("2_s0apg")
+stiff_float = 500.0
+
+[node name="MagicForce" type="Node2D" parent="." unique_id=741465944]
+script = ExtResource("3_1fu6y")
+force_strength = 99999.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=386689480]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=94885239]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" unique_id=1593573355]
+polygon = PackedVector2Array(-24, 2, -47, 24, -56, 58, -32, 101, -49, 133, -138, 131, -143, -46, 13.199341, -21.24707, 40, -17, 12, -3)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2" unique_id=1721465434]
+polygon = PackedVector2Array(-23, 1, -47, 24, -56, 58, -32, 101, -49, 133, -138, 131, -143, -46, 38, -17, 10, -3)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1043847077]
+position = Vector2(8, -3)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3" unique_id=1926629901]
+polygon = PackedVector2Array(17, 2, 39, 15, 57, 39, 50, 80, 32, 101, 6, 113, 87, 139, 176, 26, 118, -35)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3" unique_id=441293279]
+polygon = PackedVector2Array(17, 2, 39, 15, 57, 39, 50, 80, 32, 101, 6, 113, 87, 139, 176, 26, 118, -35)
