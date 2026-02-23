@@ -24,6 +24,11 @@ func stone_acceleration(pos: Vector2) -> Vector2:
 @export var rope_joint_scene: PackedScene
 @export var separation: float = 0
 @export var connection_buffer: float = 150.0
+
+@export_group("Spring", "_spring")
+@export var spring_stiffness: float = 500.0
+@export var spring_damping: float = 5.0
+
 var radius: float = 50
 
 var connected_bodies: Array[RigidBody2D] = []
@@ -41,5 +46,5 @@ func _on_body_entered(body: Node) -> void:
 				rope_joint.body2 = body
 				rope_joint.pull_back_distance = joint_distance
 				rope_joint.disconnect_distance = joint_distance + 5.0
-				rope_joint.spring_stiffness = 50.0
-				rope_joint.spring_damping = 5.0
+				rope_joint.spring_stiffness = spring_stiffness
+				rope_joint.spring_damping = spring_damping

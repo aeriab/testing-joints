@@ -51,6 +51,7 @@ shape = SubResource("WorldBoundaryShape2D_80nbo")
 polygon = PackedVector2Array(-150, 0, 0, 0, 3189, 0, 3189, 1851, -4639, 1766, -4647, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=475873295]
+zoom = Vector2(0.5, 0.5)
 
 [node name="SpawnRigidBodies" type="Node2D" parent="." unique_id=1480068635]
 script = ExtResource("1_80nbo")
@@ -100,7 +101,7 @@ stiff_float = 500.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1313090334]
 process_mode = 4
-position = Vector2(854, -308)
+position = Vector2(4138, -346)
 script = ExtResource("3_feb5d")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" unique_id=1890608250]
@@ -111,4 +112,4 @@ polygon = PackedVector2Array(-151, -27, -126, 137, 243, 80, 158, -55)
 
 [node name="MagicForce" type="Node2D" parent="." unique_id=1798878521]
 script = ExtResource("4_fc0e3")
-force_strength = 6000.0
+force_strength = 60000.0
