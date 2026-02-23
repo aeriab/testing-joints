@@ -4,3 +4,4 @@
 
 [node name="RopeJoint" type="Node2D" unique_id=1324285322]
 script = ExtResource("1_gon21")
+disconnect_distance = 130.0
