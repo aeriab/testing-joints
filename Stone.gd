@@ -22,7 +22,6 @@ func stone_acceleration(pos: Vector2) -> Vector2:
 
 
 @export var rope_joint_scene: PackedScene
-@export var spring_joint_scene: PackedScene
 @export var separation: float = 0
 @export var connection_buffer: float = 150.0
 var radius: float = 50
@@ -35,8 +34,6 @@ func _on_body_entered(body: Node) -> void:
 			var joint_distance: float = radius + body.radius + separation
 			if (body not in connected_bodies) and (joint_distance - connection_buffer < (body.global_position - global_position).length()):
 				connected_bodies.append(body)
-
-				# Rope joint
 				
 				var rope_joint = rope_joint_scene.instantiate() as RopeJoint
 				get_tree().current_scene.add_child(rope_joint)
@@ -44,15 +41,5 @@ func _on_body_entered(body: Node) -> void:
 				rope_joint.body2 = body
 				rope_joint.pull_back_distance = joint_distance
 				rope_joint.disconnect_distance = joint_distance + 5.0
-				
-				
-
-				# Spring joint
-				var spring_joint = spring_joint_scene.instantiate() as DampedSpringJoint2D
-				get_tree().current_scene.add_child(spring_joint)
-				spring_joint.global_position = global_position
-				spring_joint.node_a = spring_joint.get_path_to(self)
-				spring_joint.node_b = spring_joint.get_path_to(body)
-				spring_joint.length = joint_distance
-				spring_joint.rest_length = joint_distance
-				spring_joint.setup_bodies()
+				rope_joint.spring_stiffness = 50.0
+				rope_joint.spring_damping = 5.0

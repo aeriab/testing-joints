@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bah8jc41ddcu4" path="res://Stone.gd" id="1_6s6ed"]
 [ext_resource type="PackedScene" uid="uid://dxj85me75a643" path="res://rope_joint.tscn" id="2_rq0vd"]
-[ext_resource type="PackedScene" uid="uid://d2ga345xsn1u6" path="res://damped_spring_joint_2d.tscn" id="3_cxlo0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8fbi"]
 friction = 0.0
@@ -22,7 +21,6 @@ linear_damp = 1.0
 angular_velocity = 0.017453292
 script = ExtResource("1_6s6ed")
 rope_joint_scene = ExtResource("2_rq0vd")
-spring_joint_scene = ExtResource("3_cxlo0")
 separation = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2017897169]
