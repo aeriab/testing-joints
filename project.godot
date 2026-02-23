@@ -27,6 +27,7 @@ project/assembly_name="TestingJoints"
 
 physics_bodies=""
 connectable=""
+stone=""
 
 [input]
 

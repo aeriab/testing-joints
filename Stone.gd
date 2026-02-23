@@ -17,8 +17,14 @@ func _physics_process(_delta: float) -> void:
 			var angle_diff = wrapf(linear_velocity.angle() - rotation, -PI, PI)
 			apply_torque(angle_diff * aero_torque_strength * linear_velocity.length())
 
+@export var planet_radius: float = 500.0  # approximate radius of your stone planet
+
 func stone_acceleration(pos: Vector2) -> Vector2:
-	return pos.direction_to(Vector2.ZERO) * Global.gravity * 100 * mass
+	var dist := pos.length()
+	if dist < 1.0:
+		return Vector2.ZERO
+	var gravity_factor := clampf(dist / planet_radius, 0.0, 1.0)
+	return pos.direction_to(Vector2.ZERO) * Global.gravity * 100 * mass * gravity_factor
 
 
 @export var rope_joint_scene: PackedScene
