@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d2ga345xsn1u6"]
+
+[ext_resource type="Script" uid="uid://f6j5hbntab62" path="res://damped_spring_joint_2d.gd" id="1_2kl0r"]
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" unique_id=2139547220]
+disable_collision = false
+length = 120.0
+stiffness = 64.0
+damping = 0.5
+script = ExtResource("1_2kl0r")
+stiff_float = 500.0

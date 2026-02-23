@@ -16,8 +16,6 @@ radius = 50.0
 [node name="Game" type="Node2D" unique_id=182674882]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=613297743]
-process_mode = 4
-visible = false
 position = Vector2(1, 241)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1076655259]
@@ -58,7 +56,8 @@ stone_scene = ExtResource("2_eow3j")
 
 [node name="GroupWithJoint2" type="Node2D" parent="." unique_id=1636090332]
 process_mode = 4
-position = Vector2(2478, 1135)
+visible = false
+position = Vector2(-81, -120)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="GroupWithJoint2" unique_id=1688401346 groups=["physics_bodies"]]
 script = ExtResource("3_eow3j")
@@ -71,7 +70,7 @@ color = Color(0.65953535, 0, 0.15413767, 1)
 polygon = PackedVector2Array(0, -50, -12, -48, -28, -41, -41, -28, -49, -8, -47, 18, -34, 38, -9, 50, 11, 48, 34, 38, 48, 15, 50, -4, 42, -28, 27, -43, 14, -48)
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="GroupWithJoint2" unique_id=1559712613 groups=["physics_bodies"]]
-position = Vector2(120, 0)
+position = Vector2(0, 120)
 script = ExtResource("3_eow3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroupWithJoint2/RigidBody2D2" unique_id=1031523614]
@@ -88,7 +87,6 @@ body2 = NodePath("../RigidBody2D2")
 max_distance = 120.0
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="GroupWithJoint2" unique_id=1043358284]
-rotation = -1.5707964
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../RigidBody2D2")
 bias = 0.9
@@ -111,6 +109,5 @@ polygon = PackedVector2Array(-151, -27, -126, 137, 243, 80, 158, -55)
 polygon = PackedVector2Array(-151, -27, -126, 137, 243, 80, 158, -55)
 
 [node name="MagicForce" type="Node2D" parent="." unique_id=1798878521]
-process_mode = 4
 script = ExtResource("4_fc0e3")
-force_strength = 60000.0
+force_strength = 6000.0

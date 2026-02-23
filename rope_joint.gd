@@ -1,3 +1,4 @@
+class_name RopeJoint
 extends Node2D
 
 @export var body1: RigidBody2D
