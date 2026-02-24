@@ -32,6 +32,7 @@ func stone_acceleration(pos: Vector2) -> Vector2:
 @export_group("Spring", "_spring")
 @export var spring_stiffness: float = 500.0
 @export var spring_damping: float = 5.0
+@export var rope_strength: float = 5.0
 
 var radius: float = 50
 
@@ -49,6 +50,6 @@ func _on_body_entered(body: Node) -> void:
 				rope_joint.body1 = self
 				rope_joint.body2 = body
 				rope_joint.pull_back_distance = joint_distance
-				rope_joint.disconnect_distance = joint_distance + 5.0
+				rope_joint.disconnect_distance = joint_distance + rope_strength
 				rope_joint.spring_stiffness = spring_stiffness
 				rope_joint.spring_damping = spring_damping
